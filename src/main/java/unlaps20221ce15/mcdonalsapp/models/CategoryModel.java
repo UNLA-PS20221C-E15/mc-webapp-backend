@@ -1,35 +1,24 @@
-package unlaps20221ce15.mcdonalsapp.entities;
+package unlaps20221ce15.mcdonalsapp.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-//import javax.validation.constraints.NotNull;
-@Entity
-@Table(name = "category")
-public class Category {
+
+public class CategoryModel {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private int idCategory;
 	
-//	@NotNull(message="El nombre de la categoria es obligatorio")
-	@Column (name = "category", nullable = false)
 	private String category;
 	
-	@Column (name = "discountCategory", nullable = false)
 	private double discountCategory;
 	
-	@Column (name = "enableDiscountCategory", nullable = false)
 	private boolean enableDiscountCategory;
 
-	public Category() {
+	public CategoryModel() {
+		super();
 	}
 
-	public Category(String category, double discountCategory, boolean enableDiscountCategory) {
+	public CategoryModel(int idCategory, String category, double discountCategory, boolean enableDiscountCategory) {
 		super();
+		this.idCategory = idCategory;
 		this.category = category;
 		this.discountCategory = discountCategory;
 		this.enableDiscountCategory = enableDiscountCategory;
@@ -70,8 +59,5 @@ public class Category {
 	
 	
 	
-	
-	
-	
-	
+
 }

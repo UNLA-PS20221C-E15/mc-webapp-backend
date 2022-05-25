@@ -1,46 +1,32 @@
-package unlaps20221ce15.mcdonalsapp.entities;
+package unlaps20221ce15.mcdonalsapp.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "product")
-public class Product {
+public class ProductModel {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idProduct;
 	
-	@Column(name = "code", nullable = false)
 	private String code;
 	
-	@Column(name = "price")
 	private double price;
 	
-	@Column(name = "discount")
 	private double discount;
 	
-	@Column(name = "enable")
 	private boolean enable;
 	
-	@Column(name = "enableDiscount")
 	private boolean enableDiscount;
 	
-	@Column(name = "timesBought")
 	private int timesBought;
 	
-	@Column(name = "urlImage")
 	private String urlImage;
 	
-	public Product( ) {}
+	public ProductModel( ) {}
+	
+	
 
-	public Product( String code, double price, double discount, boolean enable, boolean enableDiscount, String urlImage,
-			int timesBought) {
+	public ProductModel(int idProduct, String code, double price, double discount, boolean enable,
+			boolean enableDiscount, int timesBought, String urlImage) {
 		super();
+		this.idProduct = idProduct;
 		this.code = code;
 		this.price = price;
 		this.discount = discount;
@@ -51,9 +37,6 @@ public class Product {
 	}
 
 
-	public void setUrlImage(String urlImage) {
-		this.urlImage = urlImage;
-	}
 
 	public int getIdProduct() {
 		return idProduct;
@@ -115,6 +98,10 @@ public class Product {
 		return urlImage;
 	}
 
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
+	}
+	
 	
 
 }
