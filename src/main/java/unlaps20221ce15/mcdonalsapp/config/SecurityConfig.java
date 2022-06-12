@@ -36,7 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
 		.authorizeRequests().antMatchers("/js/**", "/css/**").permitAll()
-		.antMatchers("/login*").permitAll()
+		.antMatchers("/products/*", "/categories/*", "/agregarProducto/*", "/actualizarProducto/*", "/borrarProducto/*", "/agregarCategoria/*", "/actualizarCategoria/*", "/borrarCategoria/*", "/login/*")
+		.permitAll()
 		.antMatchers("/home/**").hasAnyAuthority("USER", "ADMIN")
 		.antMatchers("/admin/**").hasAuthority("ADMIN")
 		.and()
