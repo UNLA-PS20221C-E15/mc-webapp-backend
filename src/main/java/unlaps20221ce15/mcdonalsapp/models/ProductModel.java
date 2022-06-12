@@ -1,9 +1,10 @@
 package unlaps20221ce15.mcdonalsapp.models;
 
-
 public class ProductModel {
 	
 	private int idProduct;
+	
+	private String product;
 	
 	private String code;
 	
@@ -19,14 +20,17 @@ public class ProductModel {
 	
 	private String urlImage;
 	
+	private CategoryModel category;
+	
 	public ProductModel( ) {}
 	
 	
 
-	public ProductModel(int idProduct, String code, double price, double discount, boolean enable,
-			boolean enableDiscount, int timesBought, String urlImage) {
+	public ProductModel(int idProduct, String product, String code, double price, double discount, boolean enable,
+			boolean enableDiscount, int timesBought, String urlImage, CategoryModel category) {
 		super();
 		this.idProduct = idProduct;
+		this.product = product;
 		this.code = code;
 		this.price = price;
 		this.discount = discount;
@@ -34,6 +38,7 @@ public class ProductModel {
 		this.enableDiscount = enableDiscount;
 		this.timesBought = timesBought;
 		this.urlImage = urlImage;
+		this.category = category;
 	}
 
 
@@ -44,6 +49,14 @@ public class ProductModel {
 
 	public void setIdProduct(int idProduct) {
 		this.idProduct = idProduct;
+	}
+
+	public String getProduct() {
+		return product;
+	}
+
+	public void setProduct(String product) {
+		this.product = product;
 	}
 
 	public String getCode() {
@@ -101,7 +114,12 @@ public class ProductModel {
 	public void setUrlImage(String urlImage) {
 		this.urlImage = urlImage;
 	}
-	
-	
 
+	public CategoryModel getCategory() {
+		return category;
+	}
+
+	public void setCategory(CategoryModel category) {
+		this.category = category;
+	}
 }

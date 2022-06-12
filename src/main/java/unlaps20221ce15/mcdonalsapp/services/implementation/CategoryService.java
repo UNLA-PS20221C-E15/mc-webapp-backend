@@ -33,7 +33,6 @@ public class CategoryService implements ICategoryService {
 	
 	private Category modelToEntity(CategoryModel categoryModel) {
 		Category category = new Category();
-		
 		category = modelMapper.map(categoryModel, Category.class);
 		
 		return category;
@@ -42,7 +41,6 @@ public class CategoryService implements ICategoryService {
 	@Override
 	public CategoryModel insertOrUpdate(CategoryModel categoryModel) {
 		Category category = categoryRepository.save(modelToEntity(categoryModel));
-		
 		return entityToModel(category);
 	}
 	

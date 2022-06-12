@@ -12,16 +12,19 @@ public class CategoryModel {
 	
 	private boolean enableDiscountCategory;
 
+	private String urlImage;
+	
 	public CategoryModel() {
 		super();
 	}
 
-	public CategoryModel(int idCategory, String category, double discountCategory, boolean enableDiscountCategory) {
+	public CategoryModel(int idCategory, String category, double discountCategory, boolean enableDiscountCategory, String urlImage) {
 		super();
 		this.idCategory = idCategory;
 		this.category = category;
 		this.discountCategory = discountCategory;
 		this.enableDiscountCategory = enableDiscountCategory;
+		this.urlImage = urlImage;
 	}
 
 	public int getIdCategory() {
@@ -55,9 +58,13 @@ public class CategoryModel {
 	public void setEnableDiscountCategory(boolean enableDiscountCategory) {
 		this.enableDiscountCategory = enableDiscountCategory;
 	}
-	
-	
-	
-	
 
+	public String getUrlImage() {
+		return urlImage;
+	}
+
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
+	}
+	
 }

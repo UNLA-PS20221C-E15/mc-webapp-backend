@@ -1,19 +1,34 @@
 package unlaps20221ce15.mcdonalsapp.entities;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties("hibernateLazyInitializer")
 @Entity
 @Table(name = "product")
-public class Product {
+public class Product implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idProduct;
+	
+	@Column(name = "product", nullable = false)
+	private String product;
+	
+	@Column(name = "description")
+	private String description;
 	
 	@Column(name = "code", nullable = false)
 	private String code;
@@ -36,11 +51,17 @@ public class Product {
 	@Column(name = "urlImage")
 	private String urlImage;
 	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade=CascadeType.ALL)
+	@JoinColumn(name = "idCategory", nullable = false)
+	private Category category;
+	
 	public Product( ) {}
 
-	public Product( String code, double price, double discount, boolean enable, boolean enableDiscount, String urlImage,
-			int timesBought) {
+	public Product( String product, String description, String code, double price, double discount, boolean enable, boolean enableDiscount, String urlImage,
+			int timesBought, Category category) {
 		super();
+		this.product = product;
+		this.description = description;
 		this.code = code;
 		this.price = price;
 		this.discount = discount;
@@ -48,6 +69,7 @@ public class Product {
 		this.enableDiscount = enableDiscount;
 		this.timesBought = timesBought;
 		this.urlImage = urlImage;
+		this.category = category;
 	}
 
 
@@ -61,6 +83,22 @@ public class Product {
 
 	public void setIdProduct(int idProduct) {
 		this.idProduct = idProduct;
+	}
+	
+	public String getProduct() {
+		return product;
+	}
+
+	public void setProduct(String product) {
+		this.product = product;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getCode() {
@@ -115,6 +153,12 @@ public class Product {
 		return urlImage;
 	}
 
-	
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
 }

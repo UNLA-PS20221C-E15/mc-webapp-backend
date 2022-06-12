@@ -16,5 +16,5 @@ public class McDonalsAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(McDonalsAppApplication.class, args);
 	}
-
+	
 }
